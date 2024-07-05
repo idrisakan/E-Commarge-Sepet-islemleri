@@ -17,6 +17,7 @@ import {Colors} from '../themes/colors';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Toast from 'react-native-toast-message';
 
 export default function ProductInfo() {
   const width = Dimensions.get('window').width;
@@ -63,6 +64,11 @@ export default function ProductInfo() {
 
   // sepette ekleme fonksiyonu
   const addToCart = async id => {
+    Toast.show({
+      type: 'success',
+      text1: 'Sepette Ürün eklendi',
+      visibilityTime:1500,
+    });
     // sepette önceden bu veri varsa AsyncStorage dan veriyi getir
     let itemArray = await AsyncStorage.getItem('cartItems');
 

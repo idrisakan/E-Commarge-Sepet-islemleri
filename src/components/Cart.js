@@ -4,6 +4,7 @@ import {Colors} from '../themes/colors';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useNavigation} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Toast from 'react-native-toast-message';
 
 export default function Cart({
   data,
@@ -19,6 +20,11 @@ export default function Cart({
     let itemsArray = await AsyncStorage.getItem('cartItems');
     itemsArray = JSON.parse(itemsArray);
     if (itemsArray) {
+      Toast.show({
+        type: 'error',
+        text1: 'Ürün silindi',
+        visibilityTime:1500,
+      });
       let array = itemsArray.filter(item => item !== id);
       await AsyncStorage.setItem('cartItems', JSON.stringify(array));
       getDataFromDB();

@@ -13,11 +13,14 @@ import {useNavigation} from '@react-navigation/native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Cart from '../components/Cart';
 
+
+
 export default function MyCart() {
   const navigation = useNavigation();
 
   const [product, setProduct] = useState([]);
   const [total, setTotal] = useState(0);
+  
 
   useEffect(() => {
     getDataFromDB();
@@ -31,6 +34,7 @@ export default function MyCart() {
     let productData = [];
 
     if (items) {
+      
       //  sepetteki ürüne miktar ayarlayabilmek için  dönüp productData dizisine veriyi ekeldik
       Items.forEach(data => {
         if (items.includes(data.id)) {
@@ -50,6 +54,7 @@ export default function MyCart() {
   const getTotal = productData => {
     let total = 0;
     for (let index = 0; index < productData.length; index++) {
+      
       let productPrice =
         productData[index].productPrice * productData[index].quantity;
       total += productPrice;

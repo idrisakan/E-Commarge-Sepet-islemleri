@@ -29,4 +29,4 @@ BU proje, React Native kullanarak bir e-ticaret sepet işlemleri uygulaması gel
 9-@react-native-async-storage/async-storage
 - Yerel depolama işlemleri için kullanılır, kullanıcı verilerini cihazda saklamak için idealdir.
 
-<img src='screen.gif' /># E-Commarge-Sepet-lemleri
+<img src='sepet-işlemleri.gif' />
